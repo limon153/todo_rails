@@ -1,0 +1,18 @@
+<h1>Задачи</h1>
+
+<%= link_to image_tag("addTodoIcon.png"), root_path, id: "add-todo-link" %>
+
+<% @projects.each do |project| %>
+  <h2><%= project.title %></h1>
+
+  <ul>
+    <% project.todos.each do |todo| %>
+
+      <li><%= todo.text %></li>
+
+    <% end %>
+  </ul>
+
+<% end %>
+
+<%= render 'form' %>

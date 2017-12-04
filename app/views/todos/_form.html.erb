@@ -1,0 +1,24 @@
+<div id="form-container">
+  <h2>Новая задача</h2>
+
+  <%= form_with model: @todo,
+    url: project_todos_path(:project_id),
+    id: "todo-create-form",
+    local: true do |form| %>
+
+    <p>
+      <%= form.text_field :text %>
+    </p>
+
+    <p>
+      <%= form.select :project_id, @projects.collect { |project| [ project.title, project.id ] } %>
+      <%= form.label :project_id %>
+    </p>
+
+    <p>
+      <%= link_to "ОТМЕНА", root_path, id: "cancel-link" %>
+      <%= link_to "ОК", root_path, id: "submit-link" %>
+    </p>
+
+  <% end %>
+</div>
