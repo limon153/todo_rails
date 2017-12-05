@@ -3,7 +3,6 @@ class Todo < ApplicationRecord
   belongs_to :project
 
   validates :text, presence: true
-  # validates :isCompleted, presence: true
 
   def set_defaults
     self.isCompleted = false if self.isCompleted.nil?
