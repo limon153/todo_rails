@@ -21,11 +21,7 @@
                 url: project_todo_path(todo.project_id, todo.id),
                 method: :patch do |form| %>
 
-                  <% if todo.isCompleted %>
-                    <%= form.check_box todo.isCompleted, {checked: true, id: "todo_#{todo.id.to_s}"}  %>
-                  <% else %>
-                    <%= form.check_box todo.isCompleted, id: "todo_#{todo.id.to_s}" %>
-                  <% end %>
+                  <%= form.check_box todo.isCompleted, {checked: todo.isCompleted, id: "todo_#{todo.id.to_s}"}  %>
                   
                   <%= form.label todo.text, for: "todo_#{todo.id.to_s}" do %>
                     <span><%= todo.text %></span>
